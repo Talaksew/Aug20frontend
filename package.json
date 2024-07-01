@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://talaksew.github.io/atn-react-front-end",
+  "homepage": "https://talaksew.github.io/reactatn",
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
