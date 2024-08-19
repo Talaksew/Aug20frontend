@@ -1,37 +1,41 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import Navbar from "./Navbar/navbar";
-import Filter from "./Filter/filter";
-import Item from "./Items/item";
-import ImgImport from "./imgImport/imgImport"
-import Footer from "./Footer/footer";
+import React from "react";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+//import "./App.css"
+// Import components
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import AddItem from "./pages/AddNewItem";
+import About from "./pages/About";
+import Contact from "./pages/ContactUs";
+import ManageItems from "./pages/ManageItems";
+import Officers from "./pages/ManageOfficers";
+import Profile from "./pages/ManageProfile";
+import Reserve from "./pages/Reserve";
+import ViewDetails from "./pages/ViewDetail";
+import ReservedLists from "./pages/ViewReserved";
+import AddHotel from "./pages/AddHotels";
 
 function App() {
-  
-  
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("/getUsers")
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
   return (
-    <div>
-    <Navbar /> 
-    <Filter />
-    
-    <Item />
-    
-    <Footer />
-    </div>
+   <Router>
+    <Routes>
 
+      <Route path="/" element={<Home />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/New" element={<AddItem />} />
+      <Route path="/about" element={<About />} />   
+      <Route path="/contactus" element={<Contact />} />
+      <Route path="/manage_items" element={<ManageItems />} />
+      <Route path="/officers" element={<Officers/>} />
+      <Route path="/profile" element={<Profile/>} />
+      <Route path="/reserve" element={<Reserve />} />
+      <Route path="//detail/:item_id" element={<ViewDetails />} />   
+      <Route path="/reserved" element={<ReservedLists />} />
+      <Route path="/addhotel" element={<AddHotel />} />
+    </Routes>
+  </Router> 
   );
 }
 
